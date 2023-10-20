@@ -4,6 +4,8 @@ const apiKey = "774d1bb89d2edf219007951a111c7664";
 const count = 40;
 const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${liegeLat}&lon=${liegeLon}&units=metric&cnt=${count}&appid=${apiKey}&lang=fr`;
 const weatherOutput = document.querySelector("#weather-output");
+const template = document.querySelector("#weather-template");
+console.log(template);
 
 fetch(weatherUrl)
   .then((response) => {
@@ -19,10 +21,6 @@ fetch(weatherUrl)
     console.log(
       temperature + " " + description + " " + vitesse + " " + date + " " + icon
     );
-    .then((weatherData) =>{
-        if
-    }
-    )
   })
   .catch((error) => {
     console.log(error);
