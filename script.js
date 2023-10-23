@@ -19,7 +19,7 @@ fetch(weatherUrl)
       const description = weatherItem.weather[0].description;
       const vitesse = weatherItem.wind.speed;
       const date = weatherItem.dt_txt;
-      const icon = weatherItem.weather[0].icon;
+      const icon = `https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}.png`;
 
       console.log(
         temperature +
@@ -33,17 +33,15 @@ fetch(weatherUrl)
           icon
       );
 
-      const liElement = document.createElement("li");
-      liElement.textContent =
-        temperature +
-        " °C, " +
-        description +
-        ", Vitesse du vent : " +
-        vitesse +
-        ", Date : " +
-        date +
-        ", Icône : " +
-        icon;
+      const liElement = template.content.cloneNode(true);
+      liElement.querySelector("p:nth-child(1)").textContent = date;
+      liElement.querySelector("p:nth-child(2)").textContent =
+        temperature + " °C";
+      liElement.querySelector("p:nth-child(3)").textContent = description;
+      liElement.querySelector("img").src = icon;
+      liElement.querySelector("p:nth-child(5)").textContent =
+        "Vitesse du vent : " + vitesse;
+
       weatherOutput.appendChild(liElement);
     });
   })

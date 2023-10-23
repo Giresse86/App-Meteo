@@ -1,15 +1,55 @@
-body{
-background-color: rgb(199, 199, 230);
-display: flex;
-justify-content: center;
-align-items: center;
-}
-h1{
+/* Réinitialisation des marges et des rembourrages */
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style de base pour le corps */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     text-align: center;
-    font-size: 50px;
+  }
+  
+  /* En-tête principal */
+  main {
+    background-color: #8cacdf;
     color: purple;
-}
-li{
-font-size: 20px;
-color: purple;
-}
+    padding: 20px;
+  }
+  
+  /* Titre de l'en-tête principal */
+  h1 {
+    font-size: 50px;
+  }
+  
+  /* Style pour la liste des prévisions météo */
+  #weather-output {
+    list-style: none;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Style pour chaque élément de prévision météo */
+  #weather-output li {
+   background-image: url(https://images.theconversation.com/files/256945/original/file-20190203-75085-1584oa5.png?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop);
+   object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 10px;
+    flex: 0 1 calc(30% - 20px);
+    text-align: center;
+    font-size: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour les informations de prévision météo */
+  #weather-output li p {
+    margin: 5px 0;
+  }
+  
+  /* Ajoutez d'autres styles CSS au besoin pour personnaliser davantage votre application météo */
+  
