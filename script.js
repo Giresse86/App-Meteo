@@ -5,22 +5,47 @@ const count = 40;
 const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${liegeLat}&lon=${liegeLon}&units=metric&cnt=${count}&appid=${apiKey}&lang=fr`;
 const weatherOutput = document.querySelector("#weather-output");
 const template = document.querySelector("#weather-template");
-console.log(template);
 
 fetch(weatherUrl)
   .then((response) => {
     return response.json();
   })
   .then((responseJson) => {
-    console.log(responseJson.list);
-    const temperature = responseJson.list[0].main.temp;
-    const description = responseJson.list[0].weather[0].description;
-    const vitesse = responseJson.list[0].wind.speed;
-    const date = responseJson.list[0].dt_txt;
-    const icon = responseJson.list[0].weather[0].icon;
-    console.log(
-      temperature + " " + description + " " + vitesse + " " + date + " " + icon
-    );
+    const weatherList = responseJson.list;
+    console.log(weatherList);
+
+    weatherList.forEach((weatherItem) => {
+      const temperature = weatherItem.main.temp;
+      const description = weatherItem.weather[0].description;
+      const vitesse = weatherItem.wind.speed;
+      const date = weatherItem.dt_txt;
+      const icon = weatherItem.weather[0].icon;
+
+      console.log(
+        temperature +
+          " °C, " +
+          description +
+          ", Vitesse du vent : " +
+          vitesse +
+          ", Date : " +
+          date +
+          ", Icône : " +
+          icon
+      );
+
+      const liElement = document.createElement("li");
+      liElement.textContent =
+        temperature +
+        " °C, " +
+        description +
+        ", Vitesse du vent : " +
+        vitesse +
+        ", Date : " +
+        date +
+        ", Icône : " +
+        icon;
+      weatherOutput.appendChild(liElement);
+    });
   })
   .catch((error) => {
     console.log(error);
