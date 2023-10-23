@@ -5,6 +5,7 @@ const count = 40;
 const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${liegeLat}&lon=${liegeLon}&units=metric&cnt=${count}&appid=${apiKey}&lang=fr`;
 const weatherOutput = document.querySelector("#weather-output");
 const template = document.querySelector("#weather-template");
+let bgImg = "";
 
 fetch(weatherUrl)
   .then((response) => {
@@ -20,7 +21,8 @@ fetch(weatherUrl)
       const vitesse = weatherItem.wind.speed;
       const date = weatherItem.dt_txt;
       const icon = `https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}.png`;
-
+      const iconName = weatherItem.weather[0].icon;
+      console.log("iconName" + iconName);
       console.log(
         temperature +
           " °C, " +
@@ -32,8 +34,33 @@ fetch(weatherUrl)
           ", Icône : " +
           icon
       );
-
       const liElement = template.content.cloneNode(true);
+      const cardWeather = liElement.querySelector(".card-weather");
+
+      switch (iconName) {
+        case "10d":
+          cardWeather.classList.add("legpluie");
+          break;
+        case "10n":
+          cardWeather.classList.add("legepluie");
+          break;
+        case "04n":
+          cardWeather.classList.add("couvert");
+          break;
+        case "02n":
+          cardWeather.classList.add("peu-couvert");
+          break;
+        case "04d":
+          cardWeather.classList.add("nuageux");
+          break;
+        case "03n":
+          cardWeather.classList.add("partielnuageux");
+          break;
+
+        default:
+          cardWeather.classList.add("casse");
+          break;
+      }
       liElement.querySelector("p:nth-child(1)").textContent = date;
       liElement.querySelector("p:nth-child(2)").textContent =
         temperature + " °C";

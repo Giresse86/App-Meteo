@@ -14,13 +14,15 @@ body, ul {
   /* En-tête principal */
   main {
     background-color: #8cacdf;
-    color: purple;
+    color: brown;
+    font-weight: bold;
     padding: 20px;
   }
   
   /* Titre de l'en-tête principal */
   h1 {
-    font-size: 50px;
+    color: brown;
+    font-size: 80px;
   }
   
   /* Style pour la liste des prévisions météo */
@@ -34,22 +36,40 @@ body, ul {
   
   /* Style pour chaque élément de prévision météo */
   #weather-output li {
-   background-image: url(https://images.theconversation.com/files/256945/original/file-20190203-75085-1584oa5.png?ixlib=rb-1.1.0&q=45&auto=format&w=1356&h=668&fit=crop);
-   object-fit: cover;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 30px;
-    margin: 10px;
-    flex: 0 1 calc(30% - 20px);
-    text-align: center;
-    font-size: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 30px;
+      margin: 10px;
+      flex: 0 1 calc(30% - 20px);
+      text-align: center;
+      font-size: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Style pour les informations de prévision météo */
+    #weather-output li p {
+        margin: 5px 0;
+    }
+    
+    /* Ajoutez d'autres styles CSS au besoin pour personnaliser davantage votre application météo */
+    
+    
+    .legpluie{
+      background-image: url(https://gifdb.com/images/high/clouds-pouring-rain-natural-weather-0mojk2g1zaw7ol8v.gif);
   }
-  
-  /* Style pour les informations de prévision météo */
-  #weather-output li p {
-    margin: 5px 0;
+  .legepluie{
+    background-image: url(https://i.gifer.com/LdoL.gif);
   }
-  
-  /* Ajoutez d'autres styles CSS au besoin pour personnaliser davantage votre application météo */
-  
+  .couvert{
+    background-image: url(https://i.gifer.com/Rnim.gif);
+  }
+  .peu-couvert{
+    background-image: url(https://cdn.pixabay.com/photo/2016/10/26/04/14/clear-blue-sky-1770603_1280.jpg);
+  }
+  .nuageux{
+    background-image: url(https://i.gifer.com/1Unb.gif);
+  }
+  .partielnuageux{
+    background-image: url(https://gifsdomi.files.wordpress.com/2014/07/gif-nuage-4.gif);
+  }
